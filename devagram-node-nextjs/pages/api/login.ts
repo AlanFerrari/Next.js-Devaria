@@ -12,7 +12,7 @@ export default (
            senha === 'Admin123') {
             res.status(200).json({msg: 'Usuário autenticado com sucesso!'});
         }
-        return res.status(400).json({erro: 'Usuário ou senha inválidos!'});
+        return res.status(400).json({erro: 'Usuário ou senha inválido!'});
     }
     return res.status(405).json({erro: 'Método informado inválido!'});
 }
