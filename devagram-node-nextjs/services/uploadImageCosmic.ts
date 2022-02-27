@@ -24,9 +24,8 @@ const upload = multer({storage: storage});
 const uploadImageCosmic = async (req: any) => {
     if(req?.file?.originalname){
 
-        if(!req.file.originalname.includes('.png') &&
-        !req.file.originalname.includes('.jpg') &&
-        !req.file.originalname.includes('.jpeg')){
+        if(!req.file.originalname.includes('.png') && !req.file.originalname.includes('.jpg') && !req.file.originalname.includes('.jpeg')){
+            
             throw new Error('Extensão da imagem inválida!');
         }
 
