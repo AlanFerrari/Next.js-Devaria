@@ -6,6 +6,7 @@ import { UsuarioModel } from '../../models/UsuarioModel';
 import { PublicacaoModel } from '../../models/PublicacaoModel';
 
 const feedEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg | any>) => {
+    
     try {
         if(req.method === 'GET'){
             if(req?.query?.id){
@@ -19,12 +20,12 @@ const feedEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPa
                 return res.status(200).json(publicacoes);
             }
         }
-
         return res.status(405).json({erro: 'Método informado inválido.'});
+
     } catch (e) {
         console.log(e);
+        return res.status(400).json({erro: 'Não foi possivel obter o feed do usuário.'})
     }
-    return res.status(400).json({erro: 'Não foi possivel obter o feed do usuário.'})
 }
 
 export default validarTokenJWT(conectarMongoDB(feedEndpoint));
