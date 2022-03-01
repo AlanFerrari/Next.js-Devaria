@@ -18,7 +18,7 @@ const handler = nc()
             }
 
             const {nome} = req?.body;
-            if(nome && nome.length > 3) {
+            if(nome && nome.length > 2) {
                 usuario.nome = nome;
             }
 
@@ -55,7 +55,7 @@ const handler = nc()
 
 export const config = {
     api: {
-        bodyParse: false
+        bodyParser: false
     }
 }
 
