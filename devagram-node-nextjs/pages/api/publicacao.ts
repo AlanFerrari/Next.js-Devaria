@@ -6,6 +6,7 @@ import { conectarMongoDB } from '../../middlewares/conectarMongoDB';
 import { validarTokenJWT } from '../../middlewares/validarTokenJWT';
 import { PublicacaoModel } from '../../models/PublicacaoModel';
 import { UsuarioModel } from '../../models/UsuarioModel';
+import { politicaCors } from '../../middlewares/politicaCors';
 
 const handler = nc()
     .use(upload.single('file'))
@@ -59,4 +60,4 @@ const handler = nc()
         }
     }
 
-    export default validarTokenJWT(conectarMongoDB(handler));
+    export default politicaCors(validarTokenJWT(conectarMongoDB(handler)));
